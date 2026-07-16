@@ -19,6 +19,6 @@ SessionLocal = sessionmaker(
 class Base(DeclarativeBase):
     pass
 
-async def get_db():
+def get_db():
     with SessionLocal() as session:
         yield session
