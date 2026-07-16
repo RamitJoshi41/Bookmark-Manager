@@ -1,6 +1,6 @@
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, EmailStr
-import uuid
+# import uuid
 
 class UserBase(BaseModel):
     email: EmailStr = Field(max_length=120)
