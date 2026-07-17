@@ -11,8 +11,6 @@ from config import settings
 from auth import (
     create_access_token,
     hash_password,
-    oauth2_scheme,
-    verify_access_token,
     verify_password,
 )
 from datetime import timezone,timedelta
@@ -70,3 +68,4 @@ def login_user(
         expires_delta=access_token_expires,
     )
     return Token(access_token=access_token, token_type="bearer")
+
