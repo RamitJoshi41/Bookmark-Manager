@@ -91,7 +91,7 @@ class Package(Base):
         nullable=False,
         index=True,
     )
-    name: Mapped[str] = mapped_column(String(20), nullable=True)
+    name: Mapped[str] = mapped_column(String(20))
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         default=lambda: datetime.now(UTC),

@@ -45,3 +45,17 @@ class BookmarkResponse(BookmarkBase):
     id: str
     user_id: str
     created_at: datetime
+
+#PACKAGES
+
+class PackageBase(BaseModel):
+    name:str
+
+class PackageCreate(PackageBase):
+    pass
+
+class PackageResponse(PackageBase):
+    model_config = ConfigDict(from_attributes=True)
+    id:str
+    user_id:str
+    created_at:datetime
