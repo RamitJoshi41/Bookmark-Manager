@@ -3,7 +3,7 @@ import axios from 'axios';
 // 1. Create a custom Axios instance
 const api = axios.create({
   // This points to your FastAPI server. Now you never have to type it again!
-  baseURL: 'http://127.0.0.1:8000', 
+  baseURL: 'https://launchspace-api.onrender.com/', 
 });
 
 // 2. Set up the Request Interceptor (The Toll Booth)
