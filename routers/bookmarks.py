@@ -91,7 +91,7 @@ def delete_bookmark(
     db.commit()
 
 
-@app.patch("/{bookmark_id}", response_model=BookmarkResponse)
+@app.patch("/update/{bookmark_id}", response_model=BookmarkResponse)
 def update_bookmark(
     bookmark_id: str,
     user: CurrentUser,

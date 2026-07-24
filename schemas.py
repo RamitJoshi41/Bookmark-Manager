@@ -26,7 +26,7 @@ class Token(BaseModel):
 
 
 class BookmarkBase(BaseModel):
-    title: str = Field(min_length=3, max_length=20)
+    title: str = Field(min_length=1, max_length=20)
     url: HttpUrl
     description: str | None = Field(default=None, max_length=200)
 
@@ -51,6 +51,8 @@ class BookmarkResponse(BookmarkBase):
 class PackageBase(BaseModel):
     name:str
 
+class PackageUpdate(BaseModel):
+    name:str
 class PackageCreate(PackageBase):
     pass
 

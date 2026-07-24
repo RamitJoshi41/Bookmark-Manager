@@ -11,6 +11,7 @@ from schemas import (
     BookmarkResponse,
     PackageCreate,
     PackageResponse,
+    PackageUpdate
 )
 
 from datetime import timedelta
@@ -178,3 +179,24 @@ def delete_package(
     db.delete(package)
     db.commit()
     return None
+
+@router.patch('/{package_id}',response_model=PackageResponse)
+def update_package(
+    user:CurrentUser,
+    package_id:str,
+    updatedPackage:PackageUpdate,
+    db:Annotated[Session,Depends(get_db)]
+):
+    query = select(models.Package).where(models.Package.user_id == user.id)
+    package = db.execute(query.where(models.Package.id == package_id)).scalars().first()
+
+    if not package:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Package does not exist"
+        )
+    update_data = updatedPackage.model_dump(exclude_unset=True)
+    for field, value in update_data.items(): 
+                setattr(package, field, value)
+    db.commit()
+    db.refresh(package)
+    return package
