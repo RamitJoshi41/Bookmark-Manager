@@ -65,7 +65,7 @@ class Bookmark(Base):
     )
     title: Mapped[str] = mapped_column(String(50), nullable=False)
     # tag: Mapped[str] = mapped_column(String(20), nullable=True)
-    url: Mapped[str] = mapped_column(String(50), nullable=False)
+    url: Mapped[str] = mapped_column(String, nullable=False)
     description: Mapped[str] = mapped_column(String(200), nullable=True)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
