@@ -8,7 +8,7 @@ models.Base.metadata.create_all(bind=engine)
 app= FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "https://bookmark-manager-lemon-theta.vercel.app/"], # frontend URLs
+    allow_origins=["http://localhost:5173", "https://bookmark-manager-lemon-theta.vercel.app"], # frontend URLs
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
