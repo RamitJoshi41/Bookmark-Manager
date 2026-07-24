@@ -6,5 +6,5 @@ pydantic
 pydantic[email]
 pydantic-settings
 python-multipart
-python-jose[cryptography]
+PyJWT
 passlib[bcrypt]
